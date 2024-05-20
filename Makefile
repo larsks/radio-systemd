@@ -5,6 +5,7 @@ unitdir=$(sysconfdir)/systemd/system
 tmpfiledir=$(sysconfdir)/tmpfiles.d
 
 INSTALL=install
+
 HELPERS=\
 				helpers/ax25ipd-start.sh \
 				helpers/kissattach-start.sh
@@ -13,7 +14,9 @@ UNITS=\
 			units/radio.target \
 			units/ax25ports.target \
 			units/kissattach@.service \
-			units/ax25ipd@.service
+			units/ax25ipd@.service \
+			units/ax25d.service
+
 TMPFILES=$(wildcard tmpfiles/*.conf)
 
 all:

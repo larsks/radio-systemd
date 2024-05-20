@@ -1,0 +1,17 @@
+[Unit]
+Description=AX.25 ax25d service
+Wants=ax25ports.target
+After=ax25ports.target
+Wants=netrom.target
+After=netrom.target
+
+[Service]
+Type=exec
+EnvironmentFile=-/etc/radio/radio.env
+ExecStart=/usr/sbin/ax25d -l
+ExecReload=kill -HUP $MAINPID
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=radio.target
