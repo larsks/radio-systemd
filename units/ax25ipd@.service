@@ -1,0 +1,14 @@
+[Unit]
+Description=AXUDP port %i
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=forking
+EnvironmentFile=-/etc/radio/radio.env
+EnvironmentFile=-/etc/radio/%i.env
+EnvironmentFile=-/run/radio/%i.env
+ExecStart=/usr/libexec/radio/ax25ipd-start.sh %i
+
+[Install]
+WantedBy=radio.target
