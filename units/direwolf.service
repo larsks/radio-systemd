@@ -1,0 +1,17 @@
+[Unit]
+ConditionPathExists=/etc/ax25/direwolf.conf
+Wants=sys-subsystem-audio-devices-radio.device
+After=sys-subsystem-audio-devices-radio.device
+
+[Service]
+Type=exec
+User=radio
+EnvironmentFile=-/etc/radio/radio.env
+EnvironmentFile=-/etc/radio/direwolf.env
+ExecStart=/usr/libexec/radio/direwolf-start.sh
+ExecStopPost=/bin/rm -f /tmp/kisstnc
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=radio.target
