@@ -11,6 +11,8 @@ EnvironmentFile=-/etc/ax25/radio.env
 EnvironmentFile=-/etc/ax25/%i.env
 EnvironmentFile=-/run/ax25/%i.env
 ExecStart=/usr/libexec/radio/kissattach-start.sh -w %i ${AX25_TTY}
+Restart=on-failure
+RestartSec=5
 
 [Install]
 WantedBy=radio.target

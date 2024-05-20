@@ -9,6 +9,8 @@ EnvironmentFile=-/etc/radio/radio.env
 EnvironmentFile=-/etc/radio/%i.env
 EnvironmentFile=-/run/radio/%i.env
 ExecStart=/usr/libexec/radio/ax25ipd-start.sh %i
+Restart=on-failure
+RestartSec=5
 
 [Install]
 WantedBy=radio.target
