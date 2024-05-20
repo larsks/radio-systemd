@@ -15,7 +15,8 @@ UNITS=\
 			units/ax25ports.target \
 			units/kissattach@.service \
 			units/ax25ipd@.service \
-			units/ax25d.service
+			units/ax25d.service \
+			units/mheardd.service
 
 TMPFILES=$(wildcard tmpfiles/*.conf)
 
